@@ -6,7 +6,7 @@ class Task{
     }
 
     start():void{
-        console.log(this.a);
+        console.log(`a = ${this.a}`);
     };
 }
 
@@ -14,12 +14,20 @@ class SimpleTask extends Task{
     constructor(protected a:string, protected b:string){
         super(a);
     }
+
+    start():void{
+        console.log(`a = ${this.a}, b = ${this.b}`);
+    };
 }
 
 class FutureTask extends SimpleTask{
     constructor(protected a:string, protected b:string, protected c:string){
         super(a,b);
     }
+
+    start():void{
+        console.log(`a = ${this.a}, b = ${this.b}, c = ${this.c}`);
+    };
 }
 
 class TaskList<T extends Task>{
