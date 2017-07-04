@@ -38,9 +38,7 @@ class TaskList<T extends Task>{
     };
 
     startAll(){
-        for(var item of this._items){
-            item.start();
-        }
+        this._items.forEach((element)=>{ element.start() });
     }
 }
 
