@@ -2,7 +2,7 @@
  * Created by VKirilenko on 04.07.2017.
  */
 class Task{
-    constructor(protected a:any){
+    constructor(protected a:string){
     }
 
     start():void{
@@ -11,13 +11,13 @@ class Task{
 }
 
 class SimpleTask extends Task{
-    constructor(protected a:any, protected b:any){
+    constructor(protected a:string, protected b:string){
         super(a);
     }
 }
 
 class FutureTask extends SimpleTask{
-    constructor(protected a:any, protected b:any, protected c:any){
+    constructor(protected a:string, protected b:string, protected c:string){
         super(a,b);
     }
 }
@@ -36,7 +36,9 @@ class TaskList<T extends Task>{
     }
 }
 
-let tasklist = new TaskList <Task>();
-tasklist.add(new SimpleTask(1, 2));
-tasklist.add(new FutureTask(2, 4, 5));
-tasklist.startAll();
+let taskList = new TaskList<Task>();
+taskList.add(new SimpleTask("simple1", "simple_content1"));
+taskList.add(new SimpleTask("simple2", "simple_content2"));
+taskList.add(new Task("task1"));
+taskList.add(new Task("task2"));
+taskList.startAll();
